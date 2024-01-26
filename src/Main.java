@@ -7,5 +7,8 @@ public class Main {
         login1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login1.setVisible(true);
         login1.setSize(300,300);
+
+
     }
 }
+
