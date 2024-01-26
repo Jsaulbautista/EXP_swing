@@ -20,7 +20,7 @@ public class login1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String pass =  new String(passField1.getPassword());
-                if(usuarioFormattedText.getText().equals("s") && pass.equals("123")){
+                if(usuarioFormattedText.getText().equals("saulx") && pass.equals("123")){
 
                     JFrame form1 = new JFrame("página 1");
                     form1.setContentPane(new form1().pag1);
@@ -28,7 +28,7 @@ public class login1 {
                     form1.setVisible(true);
 
 
-                    form1.setSize(300, 300);
+                    form1.setSize(700, 500);
                     Main.login1.dispose();
 
 
@@ -64,34 +64,35 @@ public class login1 {
                     form1.setJMenuBar(menuBar);
                     menuEjemplo.setSize(300, 200);
 
-                    // Mostrar ejemplo de dialogo
+
 
                     op1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             // EJEMPLO DE DIALOGO
-                            JFrame frame = new JFrame("Ejemplo de JDialog");
+                            JFrame dial = new JFrame("Ejemplo de JDialog");
                             JButton boton = new JButton("Mostrar diálogo");
 
+                            dial.add(boton);
+                            dial.setSize(300, 300);
+                            dial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            dial.setVisible(true);
                             boton.addActionListener(new ActionListener() {
                                 public void actionPerformed(ActionEvent e) {
 
-                                    JDialog dialogo = new JDialog(frame, "Diálogo de ejemplo", true);
+                                    JDialog dialogo = new JDialog(dial, "Diálogo de ejemplo", true);
 
-                                    // Crear y añadir contenido al diálogo
-                                    JLabel etiqueta = new JLabel("Este es un cuadro de diálogo de ejemplo");
-                                    dialogo.add(etiqueta);
 
-                                    // Configurar el tamaño y mostrar el diálogo
-                                    dialogo.setSize(250, 150);
+                                    JLabel texto = new JLabel("Estudiantes mostrados con exito!");
+                                    dialogo.add(texto);
+
+
+                                    dialogo.setSize(300, 300);
                                     dialogo.setVisible(true);
                                 }
                             });
 
-                            frame.add(boton);
-                            frame.setSize(300, 200);
-                            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                            frame.setVisible(true);
+
 
                         }
                     });
@@ -99,21 +100,21 @@ public class login1 {
                     op2.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            // Crear un nuevo JFrame
-                            JFrame frame = new JFrame("File Chooser Ejemplo");
 
-                            // Crear un botón que abrirá el JFileChooser
-                            JButton button = new JButton("Open File ejemplo");
+                            JFrame frame = new JFrame("Ejemplo");
+
+
+                            JButton button = new JButton("Buscar Archivo");
                             button.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    // Crear un JFileChooser
+
                                     JFileChooser fileChooser = new JFileChooser();
 
-                                    // Mostrar el cuadro de diálogo de selección de archivos
+
                                     int result = fileChooser.showOpenDialog(frame);
 
-                                    // Verificar si el usuario seleccionó un archivo
+
                                     if (result == JFileChooser.APPROVE_OPTION) {
                                         // Obtener el archivo seleccionado
                                         java.io.File selectedFile = fileChooser.getSelectedFile();
@@ -122,10 +123,10 @@ public class login1 {
                                 }
                             });
 
-                            // Agregar el botón al JFrame
+
                             frame.getContentPane().add(button);
 
-                            // Configurar el JFrame
+
                             frame.setSize(400, 200);
                             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                             frame.setVisible(true);
@@ -136,59 +137,47 @@ public class login1 {
                     op4.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            // Configuración del JFrame
+
                             JFrame tablaFrame = new JFrame("Ejemplo de tabla ");
 
-                            // Crear un modelo de tabla
+
                             modelo = new DefaultTableModel();
                             modelo.addColumn("Nombre");
                             modelo.addColumn("Edad");
                             modelo.addColumn("Carrera");
 
-                            // Crear datos de ejemplo
+
                             Object[] fila1 = {"Jennyfer", 25, "Programacion"};
                             Object[] fila2 = {"María", 30, "Sistemas"};
                             Object[] fila3 = {"Pedro", 28, "Redes"};
 
-                            // Agregar filas al modelo
+
                             modelo.addRow(fila1);
                             modelo.addRow(fila2);
                             modelo.addRow(fila3);
 
-                            // Crear la tabla con el modelo
+
                             tabla = new JTable(modelo);
 
-                            // Agregar la tabla a un JScrollPane
+
                             JScrollPane scrollPane = new JScrollPane(tabla);
 
                             // Agregar el JScrollPane al JFrame
                             tablaFrame.add(scrollPane);
                             tablaFrame.setSize(300,300);
 
-                            // Mostrar el JFrame
+
                             tablaFrame.setVisible(true);
 
                         }
                     });
 
-                    // Configurar el comportamiento del elemento de menú "Salir"
+                    //SALIR
                     op3.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             System.exit(0); // Salir de la aplicación al hacer clic en "Salir"
                         }
                     });
-
-
-
-
-
-
-
-
-
-
-
-
 
                 }
             }

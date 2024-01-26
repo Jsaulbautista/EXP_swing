@@ -7,7 +7,7 @@ public class Main {
         login1.setContentPane(new login1().login);
         login1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login1.setVisible(true);
-        login1.setSize(300,300);
+        login1.setSize(200,200);
 
 
     }
