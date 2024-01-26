@@ -1,7 +1,10 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import java.text.ParseException;
+
+
 
 public class form1 {
     private JTextArea textArea1;
@@ -10,6 +13,7 @@ public class form1 {
     public JPanel pag1;
     private JRadioButton opcion2;
     private JRadioButton opcion3;
+    private JTable table;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
