@@ -162,7 +162,7 @@ public class login1 {
 
                             JScrollPane scrollPane = new JScrollPane(tabla);
 
-                            // Agregar el JScrollPane al JFrame
+
                             tablaFrame.add(scrollPane);
                             tablaFrame.setSize(300,300);
 
