@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +12,9 @@ public class login1 {
     public JPasswordField passField1;
     private JButton entrar;
     public JPanel login;
+    private JTable tabla;
+    private DefaultTableModel modelo;
+
     public login1() {
         entrar.addActionListener(new ActionListener() {
             @Override
@@ -26,6 +31,8 @@ public class login1 {
                     form1.setSize(300, 300);
                     Main.login1.dispose();
 
+
+
                     // EJEMPLO DE MENU
 
                     JFrame menuEjemplo = new JFrame("Ejemplo de JMenu");
@@ -36,13 +43,17 @@ public class login1 {
 
                     // Crear elementos de menú
                     JMenuItem op1 = new JMenuItem("Mostrar ejemplo de dialogo");
-                    JMenuItem op2 = new JMenuItem("Guardar");
+                    JMenuItem op2 = new JMenuItem("Buscar Archivo");
+                    JMenuItem op4 = new JMenuItem("Tabla");
                     JMenuItem op3 = new JMenuItem("Salir");
+
 
                     // Agregar elementos al menú
                     menu.add(op1);
                     menu.addSeparator(); // Separador entre elementos
                     menu.add(op2);
+                    menu.addSeparator();
+                    menu.add(op4);
                     menu.addSeparator();
                     menu.add(op3);
 
@@ -81,6 +92,81 @@ public class login1 {
                             frame.setSize(300, 200);
                             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                             frame.setVisible(true);
+
+                        }
+                    });
+
+                    op2.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // Crear un nuevo JFrame
+                            JFrame frame = new JFrame("File Chooser Ejemplo");
+
+                            // Crear un botón que abrirá el JFileChooser
+                            JButton button = new JButton("Open File ejemplo");
+                            button.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // Crear un JFileChooser
+                                    JFileChooser fileChooser = new JFileChooser();
+
+                                    // Mostrar el cuadro de diálogo de selección de archivos
+                                    int result = fileChooser.showOpenDialog(frame);
+
+                                    // Verificar si el usuario seleccionó un archivo
+                                    if (result == JFileChooser.APPROVE_OPTION) {
+                                        // Obtener el archivo seleccionado
+                                        java.io.File selectedFile = fileChooser.getSelectedFile();
+                                        System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+                                    }
+                                }
+                            });
+
+                            // Agregar el botón al JFrame
+                            frame.getContentPane().add(button);
+
+                            // Configurar el JFrame
+                            frame.setSize(400, 200);
+                            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            frame.setVisible(true);
+                        }
+                    });
+
+
+                    op4.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // Configuración del JFrame
+                            JFrame tablaFrame = new JFrame("Ejemplo de tabla ");
+
+                            // Crear un modelo de tabla
+                            modelo = new DefaultTableModel();
+                            modelo.addColumn("Nombre");
+                            modelo.addColumn("Edad");
+                            modelo.addColumn("Carrera");
+
+                            // Crear datos de ejemplo
+                            Object[] fila1 = {"Jennyfer", 25, "Programacion"};
+                            Object[] fila2 = {"María", 30, "Sistemas"};
+                            Object[] fila3 = {"Pedro", 28, "Redes"};
+
+                            // Agregar filas al modelo
+                            modelo.addRow(fila1);
+                            modelo.addRow(fila2);
+                            modelo.addRow(fila3);
+
+                            // Crear la tabla con el modelo
+                            tabla = new JTable(modelo);
+
+                            // Agregar la tabla a un JScrollPane
+                            JScrollPane scrollPane = new JScrollPane(tabla);
+
+                            // Agregar el JScrollPane al JFrame
+                            tablaFrame.add(scrollPane);
+                            tablaFrame.setSize(300,300);
+
+                            // Mostrar el JFrame
+                            tablaFrame.setVisible(true);
 
                         }
                     });
