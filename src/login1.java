@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +11,7 @@ public class login1 {
     public JPasswordField passField1;
     private JButton entrar;
     public JPanel login;
+    private DefaultTableModel tableModel;
     public login1() {
         entrar.addActionListener(new ActionListener() {
             @Override
@@ -25,6 +27,21 @@ public class login1 {
 
                     form1.setSize(300, 300);
                     Main.login1.dispose();
+
+                    // Tabla crear tabla
+                    tableModel = new DefaultTableModel();
+                    tableModel.addColumn("Columna 1");
+                    tableModel.addColumn("Columna 2");
+                    tableModel.addColumn("Columna 3");
+
+                    // Agregar 4 filas de datos (puedes modificar esto según tus necesidades)
+                    tableModel.addRow(new Object[]{"Dato 1-1", "Dato 1-2", "Dato 1-3"});
+                    tableModel.addRow(new Object[]{"Dato 2-1", "Dato 2-2", "Dato 2-3"});
+                    tableModel.addRow(new Object[]{"Dato 3-1", "Dato 3-2", "Dato 3-3"});
+                    tableModel.addRow(new Object[]{"Dato 4-1", "Dato 4-2", "Dato 4-3"});
+
+                    // Crear la tabla con el modelo modificado
+                    JTable table = new JTable(tableModel);
 
                     // EJEMPLO DE MENU
 
@@ -91,18 +108,6 @@ public class login1 {
                             System.exit(0); // Salir de la aplicación al hacer clic en "Salir"
                         }
                     });
-
-
-
-
-
-
-
-
-
-
-
-
 
                 }
             }

@@ -1,5 +1,6 @@
 import javax.swing.*;
 
+
 public class Main {
     static JFrame login1 = new JFrame("Iniciar Sesión");
     public static void main(String[] args) {
