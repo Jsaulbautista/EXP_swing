@@ -41,9 +41,9 @@ public class login1 {
 
                     // Agregar elementos al menú
                     menu.add(op1);
-                    menu.addSeparator();
-                    menu.add(op2);
                     menu.addSeparator(); // Separador entre elementos
+                    menu.add(op2);
+                    menu.addSeparator();
                     menu.add(op3);
 
                     // Agregar el menú a la barra de menú
@@ -59,12 +59,12 @@ public class login1 {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             // EJEMPLO DE DIALOGO
-                            JFrame frame = new JFrame("Ejemplo de <link>JDialog</link>");
+                            JFrame frame = new JFrame("Ejemplo de JDialog");
                             JButton boton = new JButton("Mostrar diálogo");
 
                             boton.addActionListener(new ActionListener() {
                                 public void actionPerformed(ActionEvent e) {
-                                    // Crear una instancia de <link>JDialog</link> con modalidad
+
                                     JDialog dialogo = new JDialog(frame, "Diálogo de ejemplo", true);
 
                                     // Crear y añadir contenido al diálogo
